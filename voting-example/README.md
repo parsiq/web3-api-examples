@@ -1,9 +1,3 @@
-# What does it do
-
-This DataLake 
-
-The contract allows to add candidates and vote for them. The DataLake tracks the number of votes for each candidate.
-
 # Quick start
 
 Before you can run anything, you must obtain the Tsunami API key using your promo code. Change the `TSUNAMI_API_KEY` constant in `src/datalake.ts` accordingly.
