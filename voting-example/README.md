@@ -1,6 +1,6 @@
 # Quick start
 
-Before you can run anything, you must obtain the Tsunami API key using your promo code. Change the `TSUNAMI_API_KEY` constant in `src/datalake.ts` accordingly.
+Before you can run anything, you must change the `TSUNAMI_API_KEY` constant in `src/datalake.ts` to your private Tsunami key.
 
 `src/datalake.ts` implements a very simple stateful datalake monitoring the Voting contract deployed on Ethereum Sepolia testnet at this address: 0x7CA293451A1131D67A7dAAA0a852D5564366b7bf. The contract allows to add candidates and vote for them. The datalake tracks the number of votes for each candidate. The code is annotated to help you modify it for your purposes.
 
