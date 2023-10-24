@@ -1,0 +1,18 @@
+{
+  "name": "datalake-template",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@ethersproject/abi": "^5.3.0",
+    "@parsiq/tsunami-client": "^1.0.0",
+    "@parsiq/datalake-sdk": "file:local_packages/parsiq-datalake-sdk-0.20.4.tgz",
+    "@parsiq/tsunami-client-sdk-http": "file:local_packages/parsiq-tsunami-client-sdk-http-1.2.0.tgz",
+    "@parsiq/tsunami-client-sdk-interface": "file:local_packages/parsiq-tsunami-client-sdk-interface-1.1.0.tgz"
+  }
+}

@@ -3,6 +3,6 @@ dist/
 sandbox/
 src/**/*.js
 volumes/
-./*.tgz
-./*.tar.gz
+*.tgz
+*.tar.gz
 *.swp
