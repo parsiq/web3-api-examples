@@ -8,7 +8,7 @@ import * as util from 'util';
 import votingAbi from './ERC20.json';
 
 // Put your Tsunami API key here.
-const TSUNAMI_API_KEY = 'PIXetRYM1KerFqnCy093cKShaiS623fO';
+const TSUNAMI_API_KEY = 'YOUR_API_KEY';
 // This is the chain ID for Ethereum mainnet Tsunami API. Change it if you want to work with a different net.
 const TSUNAMI_API_NET = ChainId.ETH_MAINNET;
 
