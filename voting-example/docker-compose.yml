@@ -32,7 +32,7 @@ services:
       - pg
     image: "datalake-template-dev:latest"
     # Drop the '--reset' CLI option here if you don't want to reset the datalake's state on each run.
-    entrypoint: node --expose-gc --optimize-for-size dist/main.js
+    entrypoint: /bin/bash ./run.sh --reset
     #entrypoint: /bin/bash ./run.sh
 
   pg:
