@@ -3,13 +3,12 @@ import { TsunamiApiClient, ChainId } from '@parsiq/tsunami-client';
 import { TsunamiFilter, TsunamiEvent, DatalakeTsunamiApiClient } from '@parsiq/tsunami-client-sdk-http';
 import { Interface } from '@ethersproject/abi';
 import * as util from 'util';
-// import readline from 'readline';
 
 // Import your ABIs here, in a format suitable for decoding using @ethersproject/abi.
 import ERC20Abi from './WETHAbi.json';
 
 // Put your Tsunami API key here.
-const TSUNAMI_API_KEY = 'mBjULRIIP4Qff5PpzoAEAVUJg1qE79SC';
+const TSUNAMI_API_KEY = 'YOUR_API_KEY';
 // This is the chain ID for Ethereum mainnet Tsunami API. Change it if you want to work with a different net.
 const TSUNAMI_API_NET = ChainId.ETH_SEPOLIA;
 
@@ -116,7 +115,7 @@ class Datalake extends sdk.AbstractMultiStorageDataLakeBase<DatalakeStorageLayou
             event.topic_1!,
             event.topic_2!
         ]) as unknown as TransferEvent;
-
+        
         // Checks whether the event is relevant to the wallet we are monitoring.
         this.log('INFO', util.inspect(decoded));
         const from = decoded.src.toString();
@@ -157,11 +156,12 @@ class Datalake extends sdk.AbstractMultiStorageDataLakeBase<DatalakeStorageLayou
                         break;
                     }
                 }
+                
                 if (msg_sender) {
                     const owner_spender = `${from}_${msg_sender}`.toLowerCase();
                     const allowance = await this.get('allowances', owner_spender);
                     if (allowance) {
-                        if (allowance.allowance != 2**256 - 1) {
+                        if (allowance.allowance != (2**256 - 1)) {
                             allowance.allowance = Number(allowance.allowance) - value;
                             await this.set('allowances', owner_spender, allowance);
                         }
@@ -237,20 +237,6 @@ class Datalake extends sdk.AbstractMultiStorageDataLakeBase<DatalakeStorageLayou
     public async processBeforeDropBlockEvent(event: sdk.DropBlockData & sdk.DataLakeRunnerState): Promise<void> {}
     public async processAfterDropBlockEvent(event: sdk.DropBlockData & sdk.DataLakeRunnerState): Promise<void> {}
 }
-
-// const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// });
-
-// const waitForUserInput = async () => {
-//     return new Promise<void>((resolve) => {
-//         rl.question('Press ENTER to continue with balance update...', () => {
-//             rl.close();
-//             resolve();
-//         });
-//     });
-// };
 
 export const run = async (): Promise<void> => {
     const logger = new sdk.ConsoleLogger();
